@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hanákcar</title>
+<link rel="icon" type="image/png" href="https://i.imgur.com/cLyRU01.jpeg">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a90, #1e1e2f90),
+              url('https://i.imgur.com/skhZMcu.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  cursor: default;
+  overflow-x: hidden;
+}
+
+/* Bal oldali rejtett sáv */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -220px;
+  width: 220px;
+  height: 100%;
+  background-color: #000000;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden; /* ne lógjon ki semmi */
+  transition: left 0.3s ease;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+}
+
+.side-menu.show {
+  left: 0;
+}
+
+.side-menu h2 {
+  margin-top: 0;
+  font-size: 24px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;         /* egysorban marad */
+  overflow: hidden;            /* ne lógjon ki */
+  text-overflow: ellipsis;     /* ha hosszú, három pont */
+}
+
+.side-menu a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 15px 0;
+  font-size: 18px;
+  transition: color 0.2s;
+  white-space: nowrap;         /* egysorban marad */
+  overflow: hidden;            /* ne lógjon ki */
+  text-overflow: ellipsis;     /* ha hosszú, három pont */
+  max-width: 100%;
+}
+
+.side-menu a:hover {
+  color: #bbbbbb;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  font-weight: 400;
+}
+
+.button {
+  display: inline-block;
+  background: #ffffff;
+  color: #000000;
+  padding: 15px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: 0.3s, transform 0.2s;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.button:hover {
+  background: #dddddd;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+/* Mobilbarát dizájn */
+@media (max-width: 768px) {
+  h1 { font-size: 32px; }
+  p { font-size: 16px; }
+  .button { font-size: 18px; padding: 12px 25px; }
+  .side-menu { width: 180px; left: -180px; padding: 15px; }
+}
+</style>
+</head>
+
+<body>
+<div class="side-menu" id="sideMenu">
+  <h2>Elérhetőségek</h2>
+  <a href="tel:+36123456789">📞 +36 1 234 5678</a>
+  <a href="mailto:info@autokereskedes.hu">✉ info@autokereskedes.hu</a>
+  <a href="https://goo.gl/maps/example" target="_blank">📍 Budapest, Fő utca 1.</a>
+  <hr style="border-color:#555;">
+  <a href="https://www.facebook.com/Hanakcar" target="_blank">Facebook</a>
+  <a href="https://www.instagram.com" target="_blank">Instagram</a>
+</div>
+
+<header>
+  <h1>Üdvözlünk a Hanákcarnál!</h1>
+  <p>Minőségi használt autók, gyors ügyintézés, megbízható háttér.</p>
+  <a href="https://www.hasznaltauto.hu/partner/hanak_car_kft-12387" class="button">Használtautók megtekintése</a>
+</header>
+
+<footer>
+  © 2025 Hanákcar — Minden jog fenntartva.
+</footer>
+
+<script>
+const sideMenu = document.getElementById('sideMenu');
+
+document.addEventListener('mousemove', e => {
+  if (e.clientX <= 30) {
+    sideMenu.classList.add('show'); // előugrik
+  } else if (e.clientX > 250) {
+    sideMenu.classList.remove('show'); // eltűnik
+  }
+});
+</script>
+</body>
+</html>
