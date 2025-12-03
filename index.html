@@ -14,7 +14,7 @@ body {
   margin: 0;
   font-family: 'Poppins', Arial, sans-serif;
   background: linear-gradient(135deg, #0a0a0a90, #1e1e2f90),
-              url('https://i.imgur.com/skhZMcu.jpeg') no-repeat center center fixed;
+              url('hcj.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #ffffff;
   cursor: default;
@@ -25,20 +25,20 @@ body {
 .side-menu {
   position: fixed;
   top: 0;
-  left: -220px;
-  width: 220px;
+  left: -220px; /* alapból rejtve */
+  width: 220px; /* fix szélesség */
   height: 100%;
   background-color: #000000;
   padding: 20px;
   box-sizing: border-box;
-  overflow: hidden; /* ne lógjon ki semmi */
+  overflow: hidden; /* semmi se lógjon ki */
   transition: left 0.3s ease;
   z-index: 1000;
   font-family: 'Poppins', sans-serif;
 }
 
 .side-menu.show {
-  left: 0;
+  left: 0; /* előugrik */
 }
 
 .side-menu h2 {
@@ -49,9 +49,9 @@ body {
   color: #ffffff;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
-  white-space: nowrap;         /* egysorban marad */
-  overflow: hidden;            /* ne lógjon ki */
-  text-overflow: ellipsis;     /* ha hosszú, három pont */
+  white-space: nowrap; /* egysorban marad */
+  overflow: hidden;
+  text-overflow: clip; /* ne legyen három pont */
 }
 
 .side-menu a {
@@ -61,10 +61,10 @@ body {
   margin: 15px 0;
   font-size: 18px;
   transition: color 0.2s;
-  white-space: nowrap;         /* egysorban marad */
-  overflow: hidden;            /* ne lógjon ki */
-  text-overflow: ellipsis;     /* ha hosszú, három pont */
-  max-width: 100%;
+  white-space: nowrap; /* egysorban marad */
+  overflow: hidden;
+  text-overflow: clip; /* ne legyen három pont */
+  word-break: break-word; /* ha túl hosszú, törhet */
 }
 
 .side-menu a:hover {
